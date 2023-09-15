@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controller",
+    "\\Controller\\Administrativo",
+    "\\Controller\\Usuario",
+    "\\Model",
+    "\\Model\\Game",
+    "\\Model\\Receita",
+    "\\Model\\Usuario",
+    "\\View",
+    "\\View\\UI"
+  ],
+  "SelectedNode": "\\Controller\\Usuario",
+  "PreviewInSolutionExplorer": false
+}
