@@ -28,8 +28,8 @@ namespace LojaDeSorteios.Controller.Usuario
             int golsMeuTime;
             int golsAdversario;
 
-            golsMeuTime = random.Next(minValue: 0, maxValue:5);
-            golsAdversario = random.Next(minValue: 0, maxValue: 5);
+            golsMeuTime = random.Next(0, 5);
+            golsAdversario = random.Next(0, 5);
 
 
             switch (time)

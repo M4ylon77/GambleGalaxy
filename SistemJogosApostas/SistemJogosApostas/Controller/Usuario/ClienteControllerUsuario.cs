@@ -11,28 +11,15 @@ namespace LojaDeSorteios.Controller
 {
     internal class ClienteControllerUsuario
     {
-            Cliente cliente = new();
+            ClienteModel cliente = new();
             TelaLoginCadastro tela = new();
+             public static List<ClienteModel> listaCliente = new();
 
-           public void AddCliente(Boolean convidado)
+        public void AddCliente(Boolean convidado,ClienteModel cliente)
             {
             if (convidado == false)
-            {
-
-                Console.WriteLine("Informe seu nome: ");
-                string nome = Console.ReadLine();
-
-                Console.WriteLine("Informe senha: ");
-                string senha = Console.ReadLine();
-
-                Console.WriteLine("Informe sua Idade: ");
-                int idade = int.Parse(Console.ReadLine());
-                Console.WriteLine();
-
-                cliente.Nome = nome;
-                cliente.Idade = idade;
-                cliente.Senha = senha;
-                cliente.Iserir();
+            {                
+                listaCliente.Add(cliente);
 
                 Console.WriteLine("Cliente " + cliente.Nome + " cadastrado com sucesso!");
 
@@ -40,8 +27,8 @@ namespace LojaDeSorteios.Controller
         
             }else if(convidado ==  true)
             {
-                Cliente convidados = new Cliente("Convidado",0);
-                cliente.Iserir();
+                ClienteModel convidados = new ClienteModel("Convidado",0,"0");
+                listaCliente.Add(convidados);
 
                 Console.WriteLine("\n[Acessando como " + convidados.Nome + "]");
 
@@ -50,11 +37,29 @@ namespace LojaDeSorteios.Controller
             }
 
         }
-        public void Remover()
+        public void Autenticacao(string nome, string senha)
         {
-            cliente.Remove();
-        }
+
+            foreach(ClienteModel clientes in listaCliente)
+            {
+                if(nome.Equals(clientes.Nome) && senha.Equals(clientes.Senha))
+                {
+
+                    Console.WriteLine("Achooo");
+
+                }
+                else
+                {
+                    Console.WriteLine("troxa");
+                }
+
+            }
+
 
         }
+
+
     }
+  
+}
 

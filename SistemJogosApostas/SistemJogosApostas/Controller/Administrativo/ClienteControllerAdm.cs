@@ -5,13 +5,10 @@ namespace LojaDeSorteios.Controller.Administrativo
 {
     internal class CLienteControllerAdm
     {
-        Cliente cliente = new();
+        ClienteModel cliente = new();
         TelaLoginCadastro tela = new();
-        public void ListaCliente()
-        {
+        ClienteControllerUsuario cli = new();
 
-            cliente.Mostrar();
-        }
 
         public void AddCliente()
         {
@@ -24,18 +21,14 @@ namespace LojaDeSorteios.Controller.Administrativo
 
             cliente.Nome = nome;
             cliente.Idade = idade;
-            cliente.Iserir();
+            cli.AddCliente(false,cliente);
 
             Console.WriteLine("Cliente " + cliente.Nome + " cadastrado com sucesso!");
 
             tela.Mostrar(0, false);
 
         }
-        public void Remover()
-        {
-            cliente.Remove();
-        }
-
+     
     }
 }
 

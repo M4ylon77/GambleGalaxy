@@ -20,9 +20,15 @@ namespace LojaDeSorteios.View
                 {
 
                     Console.WriteLine("\n\nInforme Usuario e Senha Para Logar!\n");
-                    
+
+                    Console.WriteLine("Informe seu nome: ");
+                    string Cnome = Console.ReadLine();
+
+                    Console.WriteLine("Informe senha: ");
+                    string senha = Console.ReadLine();
+
                     LoginController login = new();
-                    login.Logando();
+                    login.Logando(Cnome,senha);
 
                 }
 
@@ -46,9 +52,9 @@ namespace LojaDeSorteios.View
                 {
                     case 1:
 
-                        Cliente cliente = new Cliente();
+                        ClienteModel cliente = new ClienteModel();
                         cliente.Nome = nome;
-                        Jogo jogo = new Jogo(cliente);
+                        JogoModel jogo = new JogoModel(cliente);
                         TelaUsuarioJogo telaUsuario = new();
 
                         Console.WriteLine("\nBem vindo " + jogo.Player.Nome + " A apostas de esportes!");

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LojaDeSorteios.Controller.Administrativo;
 using System.Diagnostics;
+using LojaDeSorteios.Model.Usuario;
 
 namespace LojaDeSorteios.View
 {
@@ -19,13 +20,8 @@ namespace LojaDeSorteios.View
             if (valor == 1)
             {
 
-            
-
-
                 int min = 0;
                
-               
-
                 do
                 {
                     Console.SetCursorPosition(0, Console.CursorTop); // Define a posição do cursor na coluna 0
@@ -63,10 +59,21 @@ namespace LojaDeSorteios.View
             {
                 if (convidado == false)
                 {
-                            Adicionar();
-                       
+                    Console.WriteLine("Informe seu nome: ");
+                    string nome = Console.ReadLine();
 
-                }else if (convidado == true) 
+                    Console.WriteLine("Informe senha: ");
+                    string senha = Console.ReadLine();
+
+                    Console.WriteLine("Informe sua Idade: ");
+                    int idade = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+
+                    ClienteModel cliente = new ClienteModel(nome,idade,senha);
+                    Adicionar(cliente);
+     
+                }
+                else if (convidado == true) 
                 {
                     AdicionarConvidado();
                 }
@@ -100,23 +107,23 @@ namespace LojaDeSorteios.View
         }
 
         #region Functions chamadas
-        void Adicionar()
+        void Adicionar(ClienteModel cliente)
         {
-            Controller.ClienteControllerUsuario clienteControllerUsuario = new();
-            clienteControllerUsuario.AddCliente(false);
+            ClienteControllerUsuario clienteControllerUsuario = new();
+            clienteControllerUsuario.AddCliente(false, cliente);
 
         }
         void AdicionarConvidado()
         {
             Controller.ClienteControllerUsuario clienteControllerUsuario = new();
-            clienteControllerUsuario.AddCliente(true);
+            clienteControllerUsuario.AddCliente(true,null);
 
         }
         //Functions para a Camada adm
         void Lista()
         {
             CLienteControllerAdm cliente = new();
-            cliente.ListaCliente();
+            //cliente.ListaCliente();
 
         }
 
@@ -130,7 +137,7 @@ namespace LojaDeSorteios.View
         void Remover()
         {
            CLienteControllerAdm cliente = new();
-            cliente.Remover();
+            //cliente.Remover();
 
         }
 

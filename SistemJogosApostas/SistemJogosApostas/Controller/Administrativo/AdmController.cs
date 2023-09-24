@@ -82,8 +82,8 @@ namespace LojaDeSorteios.Controller.Administrativo
 
         public void AddCliente()
         {
-            Console.WriteLine("Informe seu nome: ");
             ClienteModel clientes = new();
+            Console.WriteLine("Informe seu nome: ");
             string nome = Console.ReadLine();
 
 
@@ -93,6 +93,7 @@ namespace LojaDeSorteios.Controller.Administrativo
 
             clientes.Nome = nome;
             clientes.Idade = idade;
+
             cliente.AddCliente(false,clientes);
 
             Console.WriteLine("Cliente " + clientes.Nome + " cadastrado com sucesso!");
@@ -102,7 +103,7 @@ namespace LojaDeSorteios.Controller.Administrativo
         }
         public void Remover()
         {
-            cliente.Remover();
+           // cliente.Remover();
         }
 
     }

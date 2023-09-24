@@ -77,7 +77,7 @@ namespace LojaDeSorteios.View
 
                     LoginController login = new();
 
-                    login.Autenticacao(usuario, senha);
+                    login.Logando(usuario, senha);
                 
 
             }
@@ -105,7 +105,7 @@ namespace LojaDeSorteios.View
 
                         ClienteModel cliente = new ClienteModel();
                         cliente.Nome = nome;
-                        Jogo jogo = new Jogo(cliente);
+                        JogoModel jogo = new JogoModel(cliente);
                         TelaUsuarioJogo telaUsuario = new();
 
                         Console.WriteLine("\nBem vindo " + jogo.Player.Nome + " A apostas de esportes!");

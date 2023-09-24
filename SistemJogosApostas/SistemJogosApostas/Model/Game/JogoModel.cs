@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LojaDeSorteios.Model.Aplicacao
 {
-    internal class Jogo
+    internal class JogoModel
     {
         private ClienteModel _player;
 
@@ -19,14 +19,14 @@ namespace LojaDeSorteios.Model.Aplicacao
   
         }
 
-        public Jogo()
+        public JogoModel()
         {
             _player = null;
 
         }
 
        
-        public Jogo(ClienteModel player)
+        public JogoModel(ClienteModel player)
         {
             _player = player;
 

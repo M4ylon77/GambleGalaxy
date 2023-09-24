@@ -13,19 +13,9 @@ namespace LojaDeSorteios.Controller.Usuario
 {
     internal class LoginController
     {
-        public void Logando() 
+        public void Logando(string nome, string senha) 
         {
-            
-            Console.WriteLine("Primeiro Nome:");
-            string nome = Console.ReadLine();
-            Console.WriteLine("Senha:");
-            string senha = Console.ReadLine();
-
-            Cliente cliente = new();
-
-
-
-
+            ClienteControllerUsuario clienteControllerUsuario = new();
 
             int min = 0;
             /// int ida = 100;
@@ -73,9 +63,9 @@ namespace LojaDeSorteios.Controller.Usuario
 
             } while (min <= 100);
 
+            
+            clienteControllerUsuario.Autenticacao(nome, senha);
 
-
-            cliente.Autenticacao(nome, senha);
         }
 
     }
