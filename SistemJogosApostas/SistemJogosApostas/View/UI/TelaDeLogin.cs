@@ -106,11 +106,11 @@ namespace LojaDeSorteios.View
                         ClienteModel cliente = new ClienteModel();
                         cliente.Nome = nome;
                         JogoModel jogo = new JogoModel(cliente);
-                        TelaUsuarioJogo telaUsuario = new();
+                        TelaConvidadoJogo telaUsuario = new();
 
                         Console.WriteLine("\nBem vindo " + jogo.Player.Nome + " A apostas de esportes!");
 
-                        telaUsuario.PlayerEmJogo();
+                        telaUsuario.PlayerEmJogo(0,0);
                         
 
                         break;

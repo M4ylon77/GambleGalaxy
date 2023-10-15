@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using LojaDeSorteios.View;
 using LojaDeSorteios.Model.Usuario;
+using LojaDeSorteios.View.UI;
 
 namespace LojaDeSorteios.Controller
 {
@@ -14,7 +15,7 @@ namespace LojaDeSorteios.Controller
             ClienteModel cliente = new();
             TelaLoginCadastro tela = new();
              public static List<ClienteModel> listaCliente = new();
-
+        TelaCadastroLogin telaCadastroLogin = new();
         public void AddCliente(Boolean convidado,ClienteModel cliente)
             {
             if (convidado == false)
@@ -39,22 +40,38 @@ namespace LojaDeSorteios.Controller
         }
         public void Autenticacao(string nome, string senha)
         {
-
-            foreach(ClienteModel clientes in listaCliente)
+            if (listaCliente.Count == 0)
             {
-                if(nome.Equals(clientes.Nome) && senha.Equals(clientes.Senha))
-                {
+                listaCliente.Add(cliente);
+                Console.WriteLine("\n\n==Usuario Não existe==");
+                listaCliente.Remove(cliente);
 
-                    Console.WriteLine("Achooo");
+ 
 
-                }
-                else
-                {
-                    Console.WriteLine("troxa");
-                }
+                telaCadastroLogin.Mostrar(3, false);
 
             }
+            else
+            {
+                foreach (ClienteModel clientes in listaCliente)
+                {
+                    if (nome.Equals(clientes.Nome) && senha.Equals(clientes.Senha))
+                    {
 
+                        TelaDoJogo teladojogo = new();
+
+                        teladojogo.MostrarTelaDoJogo(2, nome, null,1);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("troxa");
+
+                        telaCadastroLogin.Mostrar(2, false);
+                    }
+
+                }
+            }
 
         }
 

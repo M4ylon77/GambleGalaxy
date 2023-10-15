@@ -13,6 +13,8 @@ namespace LojaDeSorteios.Controller.Administrativo
         TelaLoginAdm telaLoginAdm = new();
         TelaAdministrativa telaAdm = new();
         private static List<AdmModel> _AdmList = new(); 
+
+        //Acesso administrativo para manipulações mais complexas e privadas dos usuarios!
         public void ListaCliente()
         {
             List<ClienteModel> _listCli = new();
@@ -34,34 +36,30 @@ namespace LojaDeSorteios.Controller.Administrativo
         public void Autenticação(AdmModel adm)
         {
             AdmModel admModel = new();
-            admModel.Nome = "";
-            admModel.Senha = "";
-
+            admModel.User = "pr02602";
+            admModel.Senha = "ra26me02";
             _AdmList.Add(admModel);
 
+            AdmModel admin = new();
 
             if(_AdmList.Count == 0)
             {
-                AdmModel AdmV = new();
-                AdmController cLienteControllerAdm = new();
-                adm.Senha = "";
-                adm.Nome = "";
-                cLienteControllerAdm.addAdm(AdmV);
-
+                _AdmList.Add(admin);
                 Console.WriteLine("Adm Não existente!!!");
-                _AdmList.RemoveAt(0);
+                _AdmList.Remove(admin);
 
                 
                 telaLoginAdm.Mostrar();
             }
             else
             {
+                
 
                 foreach (AdmModel adms in _AdmList)
                 {
-                    if (adms.Nome == adm.Nome && adms.Senha == adm.Senha)
+                    if (adms.User.Equals(adm.User) && adms.Senha.Equals(adm.Senha))
                     {
-                        Console.WriteLine("Logado com sucesso senhor"+ adm.Nome);
+                        Console.WriteLine("\nLogado com sucesso senhor "+ adm.Nome);
                         
                         
                         telaAdm.TelaMostrarAdm();

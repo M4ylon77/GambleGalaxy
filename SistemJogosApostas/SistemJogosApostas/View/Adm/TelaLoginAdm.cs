@@ -22,7 +22,7 @@ namespace SistemJogosApostas.View.Adm
             Console.WriteLine("Informe passowrd:");
             string password = Console.ReadLine();
 
-            AdmModel adm = new(user,password,user);
+            AdmModel adm = new("Rafael", password, user);
 
             cLienteControllerAdm.Autenticação(adm);
 

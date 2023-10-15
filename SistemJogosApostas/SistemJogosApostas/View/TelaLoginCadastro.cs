@@ -43,11 +43,11 @@ namespace LojaDeSorteios.View
 
                 if (convidado == true)
                 {
-                    telaDoJogo.MostrarTelaDoJogo(3, null);
+                    telaDoJogo.MostrarTelaDoJogo(3, null,null,0);
                 }
                 else if(convidado == false)
                 {
-                    telaDoJogo.MostrarTelaDoJogo(1, null);
+                    telaDoJogo.MostrarTelaDoJogo(1, null,null,0);
                 }
                 
 

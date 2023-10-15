@@ -9,7 +9,7 @@ namespace LojaDeSorteios.Model.Aplicacao
 {
     internal class JogoModel
     {
-        private ClienteModel _player;
+        private ClienteModel? _player;
 
         public ClienteModel Player
         {

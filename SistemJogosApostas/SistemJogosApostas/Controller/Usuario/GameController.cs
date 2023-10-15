@@ -1,4 +1,5 @@
 ﻿using LojaDeSorteios.View.UI;
+using SistemJogosApostas.Model.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,11 @@ namespace LojaDeSorteios.Controller.Usuario
 
         private  List<string> _listTime = new();
        
-        public void Funcionalidade(Double valor , int time)
+        public void Funcionalidade(double valorAposta, int time, Double con)
         {
             Console.Clear();    
+
+             
 
             _listTime.Add("Corinthians");
             _listTime.Add("São Paulo");
@@ -42,7 +45,23 @@ namespace LojaDeSorteios.Controller.Usuario
 
                     Console.WriteLine("Corinthians fez: " +  golsMeuTime + " gols " + timeEscolhido + " fez: " +  golsAdversario + " gols\n");
 
-                    Voltar();
+                    if (golsMeuTime > golsAdversario)
+                    {
+
+                       Double result = con + valorAposta;
+                        Voltar(result);
+                    }
+                    else if(golsMeuTime < golsAdversario)
+                    {
+                       Double result = con - valorAposta;
+                        Voltar(result);
+                    }
+                    else
+                    {
+                        Voltar(con);
+                    }
+
+                    
 
 
                     break;
@@ -56,7 +75,7 @@ namespace LojaDeSorteios.Controller.Usuario
 
                     Console.WriteLine("São Paulo fez: " + golsMeuTime + " gols " + timeEscolhido2 + " fez: " + golsAdversario + " gols");
 
-                    Voltar();
+                    Voltar(valorAposta);
 
                     break;
 
@@ -68,7 +87,7 @@ namespace LojaDeSorteios.Controller.Usuario
                     Console.WriteLine("Palmeiras VS " + timeEscolhido3);
                     Console.WriteLine("Palmeiras fez: " + golsMeuTime + " gols " + timeEscolhido3 + " fez: " + golsAdversario + " gols");
 
-                    Voltar();
+                    Voltar(valorAposta);
 
 
                     break;
@@ -78,12 +97,12 @@ namespace LojaDeSorteios.Controller.Usuario
 
 
         }
-        void Voltar()
+        void Voltar(double valorAposta)
         {
 
-            TelaUsuarioJogo telaUsuario = new();
+            TelaConvidadoJogo telaUsuario = new();
 
-            telaUsuario.PlayerEmJogo();
+            telaUsuario.PlayerEmJogo(0,valorAposta);
 
 
         }

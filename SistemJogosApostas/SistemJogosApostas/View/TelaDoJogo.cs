@@ -2,6 +2,8 @@
 using LojaDeSorteios.Model.Aplicacao;
 using LojaDeSorteios.Model.Usuario;
 using LojaDeSorteios.View.UI;
+using SistemJogosApostas.Model.Usuario;
+using SistemJogosApostas.View.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +14,12 @@ namespace LojaDeSorteios.View
 {
     internal class TelaDoJogo
     {
-
-        public void MostrarTelaDoJogo(int valorJogo, string nome)
+      
+        public void MostrarTelaDoJogo(int valorJogo, string nome, Convidado convidad1, int num)
         {
             if (valorJogo == 1)
             {
-                {
+                
 
                     Console.WriteLine("\n\nInforme Usuario e Senha Para Logar!\n");
 
@@ -30,12 +32,12 @@ namespace LojaDeSorteios.View
                     LoginController login = new();
                     login.Logando(Cnome,senha);
 
-                }
+                
 
             }else if (valorJogo == 2)
             {
                 
-                if(nome.Equals("s"))
+                if(nome.Equals(""))
                 {
                     Console.WriteLine("Convidado Logado!!");
                 }
@@ -55,12 +57,22 @@ namespace LojaDeSorteios.View
                         ClienteModel cliente = new ClienteModel();
                         cliente.Nome = nome;
                         JogoModel jogo = new JogoModel(cliente);
-                        TelaUsuarioJogo telaUsuario = new();
+                        TelaConvidadoJogo telaUsuario = new();
 
-                        Console.WriteLine("\nBem vindo " + jogo.Player.Nome + " A apostas de esportes!");
+                        Console.WriteLine("\n==Bem vindo " + jogo.Player.Nome + " a apostas de esportes!==");
 
-                        telaUsuario.PlayerEmJogo();
-                        
+                        if (num == 1)
+                        {
+                            TelaUsuarioJogo telaUsuarioJogo = new();
+
+                            telaUsuarioJogo.PlayerEmJogo(0,0);                            
+
+                        }
+                        else
+                        {
+                            
+                            telaUsuario.PlayerEmJogo(1, 0);
+                        }
 
                         break;
                     case 2:
@@ -74,7 +86,8 @@ namespace LojaDeSorteios.View
             if (valorJogo == 3) 
             {
                 TelaDoJogo jogo = new();
-                jogo.MostrarTelaDoJogo(2, "s");
+
+                jogo.MostrarTelaDoJogo(2, "",null,0);
             }
         }
 
