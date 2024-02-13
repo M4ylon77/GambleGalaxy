@@ -1,4 +1,0 @@
-2- resultados das apostas do usuario!
-3- estipular valores de usuario como convidado.
-4- Banco de dados.
-5- Transições!

@@ -1,8 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SistemJogosApostas"
+    "\\Controller",
+    "\\Controller\\Administrativo",
+    "\\Controller\\Usuario",
+    "\\Model",
+    "\\Model\\Game",
+    "\\Model\\Receita",
+    "\\Model\\Usuario",
+    "\\View",
+    "\\View\\UI"
   ],
-  "SelectedNode": "\\SistemJogosApostas\\Program.cs",
+  "SelectedNode": "\\Controller\\Usuario",
   "PreviewInSolutionExplorer": false
 }
